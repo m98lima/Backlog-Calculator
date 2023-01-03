@@ -12,11 +12,29 @@ export const SearchBarContainer = styled.textarea`
   display: block;
   margin-inline: auto;
   resize: none;
-  background-color: #5A5A5A;
-  border: 7px solid #A1A1A1;
-  border-radius: 40px;
-  padding: 12px;
+  background-color: #5a5a5a;
   overflow-wrap: normal;
   overflow: hidden;
-  max-height: 15px;
+  white-space: nowrap;
+  height: 23px;
+  width: 435px;
+  padding: none;
+  margin-top: 7px;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const OuterSearchBarContainer = styled.div`
+  display: block;
+  margin-inline: auto;
+  background-color: #5a5a5a;
+  border: 7px solid #a1a1a1;
+  border-radius: 40px;
+
+  max-width: 460px;
+  height: 35px;
+  max-height: 35px;
 `;
