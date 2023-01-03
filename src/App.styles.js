@@ -21,9 +21,15 @@ export const SearchBarContainer = styled.textarea`
   padding: none;
   margin-top: 7px;
   border: none;
+  color: #ffffff;
 
   &:focus {
     outline: none;
+  }
+
+  &::placeholder {
+    color: #ffffff;
+    opacity: 20%;
   }
 `;
 
