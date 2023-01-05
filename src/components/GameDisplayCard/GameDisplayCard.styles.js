@@ -7,6 +7,8 @@ export const DisplayCardContainerFlex = styled.div`
   border: 6px solid #198ce4;
   border-radius: 11px;
 
+  margin: 4px;
+
   display: flex;
   flex-direction: row;
   align-items: center;

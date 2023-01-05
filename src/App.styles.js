@@ -44,3 +44,20 @@ export const OuterSearchBarContainer = styled.div`
   height: 35px;
   max-height: 35px;
 `;
+
+export const CardListContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  overflow-y: scroll;
+  width: 80%;
+  height: 400px;
+  margin-top: 50px;
+  margin-inline: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
