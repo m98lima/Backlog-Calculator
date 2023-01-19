@@ -91,7 +91,7 @@ yarn-error.log*
 /coverage
 
 # next.js
-/.next/
+backlog-calculator/.next/
 /out/
 
 # production
@@ -118,36 +118,35 @@ yarn-error.log*
 next-env.d.ts
 
 # End of https://www.toptal.com/developers/gitignore/api/nextjs
-
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# local env files
-.env*.local
-
-# vercel
-.vercel
+backlog-calculator/.next/trace
+backlog-calculator/.next/cache/webpack/client-development/0.pack
+backlog-calculator/.next/cache/webpack/client-development/index.pack
+backlog-calculator/.next/cache/webpack/server-development/0.pack
+backlog-calculator/.next/cache/webpack/server-development/1.pack
+backlog-calculator/.next/cache/webpack/server-development/index.pack
+backlog-calculator/.next/cache/webpack/server-development/index.pack.old
+backlog-calculator/.next/server/font-loader-manifest.js
+backlog-calculator/.next/server/font-loader-manifest.json
+backlog-calculator/.next/server/webpack-api-runtime.js
+backlog-calculator/.next/server/pages/_document.js
+backlog-calculator/.next/server/pages/index.js
+backlog-calculator/.next/server/pages/api/hello.js
+backlog-calculator/.next/static/chunks/webpack.js
+backlog-calculator/.next/static/chunks/pages/_app.js
+backlog-calculator/.next/static/chunks/pages/index.js
+backlog-calculator/.next/trace
+backlog-calculator/.next/cache/webpack/client-development/0.pack
+backlog-calculator/.next/cache/webpack/client-development/index.pack
+backlog-calculator/.next/cache/webpack/server-development/0.pack
+backlog-calculator/.next/cache/webpack/server-development/1.pack
+backlog-calculator/.next/cache/webpack/server-development/index.pack
+backlog-calculator/.next/cache/webpack/server-development/index.pack.old
+backlog-calculator/.next/server/font-loader-manifest.js
+backlog-calculator/.next/server/font-loader-manifest.json
+backlog-calculator/.next/server/webpack-api-runtime.js
+backlog-calculator/.next/server/pages/_document.js
+backlog-calculator/.next/server/pages/index.js
+backlog-calculator/.next/server/pages/api/hello.js
+backlog-calculator/.next/static/chunks/webpack.js
+backlog-calculator/.next/static/chunks/pages/_app.js
+backlog-calculator/.next/static/chunks/pages/index.js
