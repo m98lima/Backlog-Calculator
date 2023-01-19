@@ -9,8 +9,9 @@ import GameDisplayCard from "@/components/GameDisplayCard/GameDisplayCard";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [gameQuery, setGameQuery] = useState();
+  const [gameQuery, setGameQuery] = useState("");
   const [timeoutId, setTimeoutId] = useState();
+  const [searchResults, setSearchResults] = useState([]);
 
   async function getGameResults() {
     const hltbFetch = await fetch(`/api/hltb?q=${gameQuery}`, {
@@ -19,20 +20,20 @@ export default function Home() {
         "Content-Type": "application/json",
       },
     });
+    console.log(hltbFetch);
     const hltbJson = await hltbFetch.json();
     console.log(hltbJson);
   }
 
-  const handleSearchBar = (newQuery) => {
-    setGameQuery(newQuery);
+  useEffect(() => {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
     const changeQuery = setTimeout(() => {
       getGameResults();
-    }, 2000);
+    }, 1500);
     setTimeoutId(changeQuery);
-  };
+  }, [gameQuery]);
 
   return (
     <>
@@ -54,7 +55,7 @@ export default function Home() {
             placeholder="Search for a game...."
             cols="57"
             rows="1"
-            onChange={(e) => handleSearchBar(e.target.value)}
+            onChange={(e) => setGameQuery(e.target.value)}
           />
         </OuterSearchBarContainer>
 
