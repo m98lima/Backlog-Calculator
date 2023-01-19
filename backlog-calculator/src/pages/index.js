@@ -7,6 +7,20 @@ import {
 } from "@/pages/index.styles";
 import GameDisplayCard from "@/components/GameDisplayCard/GameDisplayCard";
 
+
+
+const dummy = "Nioh";
+async function getGameResults(gameTitle) {
+  const hltbFetch = await fetch(`/api/hltb?q=${gameTitle}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const hltbJson = await hltbFetch.json();
+  console.log(hltbJson);
+};
+
 export default function Home() {
   return (
     <>
@@ -22,6 +36,10 @@ export default function Home() {
       </Head>
       <div>
         <TitleContainer>Backlog estimator</TitleContainer>
+
+        <button
+          onClick={() => getGameResults(dummy)}
+        ></button>
 
         <OuterSearchBarContainer>
           <SearchBarContainer
