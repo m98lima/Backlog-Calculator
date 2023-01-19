@@ -6,22 +6,34 @@ import {
   TitleContainer,
 } from "@/pages/index.styles";
 import GameDisplayCard from "@/components/GameDisplayCard/GameDisplayCard";
-
-
-
-const dummy = "Nioh";
-async function getGameResults(gameTitle) {
-  const hltbFetch = await fetch(`/api/hltb?q=${gameTitle}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const hltbJson = await hltbFetch.json();
-  console.log(hltbJson);
-};
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [gameQuery, setGameQuery] = useState();
+  const [timeoutId, setTimeoutId] = useState();
+
+  async function getGameResults() {
+    const hltbFetch = await fetch(`/api/hltb?q=${gameQuery}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const hltbJson = await hltbFetch.json();
+    console.log(hltbJson);
+  }
+
+  const handleSearchBar = (newQuery) => {
+    setGameQuery(newQuery);
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    const changeQuery = setTimeout(() => {
+      getGameResults();
+    }, 2000);
+    setTimeoutId(changeQuery);
+  };
+
   return (
     <>
       <Head>
@@ -37,15 +49,12 @@ export default function Home() {
       <div>
         <TitleContainer>Backlog estimator</TitleContainer>
 
-        <button
-          onClick={() => getGameResults(dummy)}
-        ></button>
-
         <OuterSearchBarContainer>
           <SearchBarContainer
             placeholder="Search for a game...."
             cols="57"
             rows="1"
+            onChange={(e) => handleSearchBar(e.target.value)}
           />
         </OuterSearchBarContainer>
 
