@@ -20,9 +20,9 @@ export default function Home() {
         "Content-Type": "application/json",
       },
     });
-    console.log(hltbFetch);
     const hltbJson = await hltbFetch.json();
-    console.log(hltbJson);
+    setSearchResults(hltbJson.response);
+    console.log(searchResults);
   }
 
   useEffect(() => {
@@ -48,7 +48,9 @@ export default function Home() {
         />
       </Head>
       <div>
-        <TitleContainer>Backlog estimator</TitleContainer>
+        <TitleContainer onClick={() => console.log(searchResults)}>
+          Backlog estimator
+        </TitleContainer>
 
         <OuterSearchBarContainer>
           <SearchBarContainer
@@ -60,20 +62,9 @@ export default function Home() {
         </OuterSearchBarContainer>
 
         <CardListContainer>
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
-          <GameDisplayCard />
+          {searchResults.map((elem) => (
+            <GameDisplayCard gameInfo={elem} />
+          ))}
         </CardListContainer>
       </div>
     </>

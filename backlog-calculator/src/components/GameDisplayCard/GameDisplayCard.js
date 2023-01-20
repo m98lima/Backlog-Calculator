@@ -10,25 +10,25 @@ import {
   TimeLabelContainer,
 } from "./GameDisplayCard.styles";
 
-const GameDisplayCard = () => {
+const GameDisplayCard = ( { gameInfo } ) => {
   return (
     <DisplayCardContainerFlex>
-      <CoverImageContainer src="https://upload.wikimedia.org/wikipedia/pt/f/f9/Portal_caixa.jpg" />
+      <CoverImageContainer src={gameInfo.imageUrl} />
 
       <GameInfoContainerFlex>
-        <GameTitleContainer>Portal</GameTitleContainer>
+        <GameTitleContainer>{gameInfo.name}</GameTitleContainer>
 
         <TimeEstimateContainerFlex>
           <TimeLabelContainer>Main Story</TimeLabelContainer>
-          <PlaytimeContainer>3h</PlaytimeContainer>
+          <PlaytimeContainer>{gameInfo.gameplayMain}h</PlaytimeContainer>
         </TimeEstimateContainerFlex>
         <TimeEstimateContainerFlex>
           <TimeLabelContainer>Main + extras</TimeLabelContainer>
-          <PlaytimeContainer>13½h</PlaytimeContainer>
+          <PlaytimeContainer>{gameInfo.gameplayMainExtra}h</PlaytimeContainer>
         </TimeEstimateContainerFlex>
         <TimeEstimateContainerFlex>
           <TimeLabelContainer>Completionist</TimeLabelContainer>
-          <PlaytimeContainer>112h</PlaytimeContainer>
+          <PlaytimeContainer>{gameInfo.gameplayCompletionist}h</PlaytimeContainer>
         </TimeEstimateContainerFlex>
       </GameInfoContainerFlex>
 
