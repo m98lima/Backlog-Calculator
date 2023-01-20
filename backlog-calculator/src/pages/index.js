@@ -1,6 +1,7 @@
 import Head from "next/head";
 import {
   CardListContainer,
+  LoadingBubble,
   OuterSearchBarContainer,
   SearchBarContainer,
   TitleContainer,
@@ -12,6 +13,7 @@ export default function Home() {
   const [gameQuery, setGameQuery] = useState("");
   const [timeoutId, setTimeoutId] = useState();
   const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   async function getGameResults() {
     const hltbFetch = await fetch(`/api/hltb?q=${gameQuery}`, {
@@ -22,15 +24,16 @@ export default function Home() {
     });
     const hltbJson = await hltbFetch.json();
     setSearchResults(hltbJson.response);
-    console.log(searchResults);
+    setIsLoading(false);
   }
 
   useEffect(() => {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
+    setIsLoading(true);
     const changeQuery = setTimeout(() => {
-      getGameResults();
+      /* getGameResults(); */
     }, 1500);
     setTimeoutId(changeQuery);
   }, [gameQuery]);
@@ -61,11 +64,13 @@ export default function Home() {
           />
         </OuterSearchBarContainer>
 
-        <CardListContainer>
+        {!isLoading && <CardListContainer>
           {searchResults.map((elem) => (
             <GameDisplayCard gameInfo={elem} />
           ))}
-        </CardListContainer>
+        </CardListContainer>}
+
+        {isLoading && <LoadingBubble />}
       </div>
     </>
   );

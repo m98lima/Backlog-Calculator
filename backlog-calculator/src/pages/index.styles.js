@@ -61,3 +61,23 @@ export const CardListContainer = styled.div`
     display: none;
   }
 `;
+
+export const LoadingBubble = styled.div`
+  height: 60px;
+  width: 60px;
+  border: 10px solid #198ce4;
+  border-radius: 50%;
+
+  margin-top: 50px;
+  margin-inline: auto;
+
+  @keyframes loadAnim {
+    0% {
+      width: 60px;
+    };
+    100% {
+      width: 0px;
+    };
+  };
+  animation: loadAnim 0.6s ease-in 0s infinite alternate;
+`;
