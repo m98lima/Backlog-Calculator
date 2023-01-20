@@ -37,7 +37,8 @@ export const OuterSearchBarContainer = styled.div`
   display: block;
   margin-inline: auto;
   background-color: #5a5a5a;
-  border: 7px solid #a1a1a1;
+  border: ${props => props.isEmpty ? "7px solid #a1a1a1" : "7px solid #198ce4"};
+  transition-duration: 0.3s;
   border-radius: 40px;
 
   max-width: 460px;

@@ -4,7 +4,7 @@ export const DisplayCardContainerFlex = styled.div`
   height: 130px;
   width: 250px;
   background-color: #4a4a4a;
-  border: 6px solid #198ce4;
+  border: 6px solid #a1a1a1;
   border-radius: 11px;
 
   margin: 4px;
@@ -12,11 +12,16 @@ export const DisplayCardContainerFlex = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  &:hover {
+    border: 6px solid #198ce4;
+    transition-duration: 0.2s;
+  }
 `;
 
 export const CoverImageContainer = styled.img`
-  height: 110px;
-  width: 75px;
+  max-height: 110px;
+  max-width: 75px;
   border-radius: 4px;
   margin-left: 7px;
 `;
@@ -37,6 +42,12 @@ export const GameTitleContainer = styled.h2`
   font-weight: bold;
   margin-bottom: 4px;
   margin-top: 0px;
+
+  width: 135px;
+  height: 21px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
 `;
 
 export const TimeEstimateContainerFlex = styled.div`

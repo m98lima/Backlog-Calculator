@@ -33,7 +33,7 @@ export default function Home() {
     }
     setIsLoading(true);
     const changeQuery = setTimeout(() => {
-      /* getGameResults(); */
+      getGameResults();
     }, 1500);
     setTimeoutId(changeQuery);
   }, [gameQuery]);
@@ -55,7 +55,7 @@ export default function Home() {
           Backlog estimator
         </TitleContainer>
 
-        <OuterSearchBarContainer>
+        <OuterSearchBarContainer isEmpty={gameQuery.length == 0} >
           <SearchBarContainer
             placeholder="Search for a game...."
             cols="57"
