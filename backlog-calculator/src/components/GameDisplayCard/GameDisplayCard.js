@@ -10,7 +10,7 @@ import {
   TimeLabelContainer,
 } from "./GameDisplayCard.styles";
 
-const GameDisplayCard = ( { gameInfo } ) => {
+const GameDisplayCard = ( { gameInfo, addFunc } ) => {
   return (
     <DisplayCardContainerFlex>
       <CoverImageContainer src={gameInfo.imageUrl} />
@@ -33,7 +33,7 @@ const GameDisplayCard = ( { gameInfo } ) => {
       </GameInfoContainerFlex>
 
       <CardButtonContainerFlex>
-        <CardButtonContainer>+</CardButtonContainer>
+        <CardButtonContainer onClick={addFunc} >+</CardButtonContainer>
       </CardButtonContainerFlex>
     </DisplayCardContainerFlex>
   );

@@ -8,6 +8,7 @@ import {
 } from "@/pages/index.styles";
 import GameDisplayCard from "@/components/GameDisplayCard/GameDisplayCard";
 import { useEffect, useState } from "react";
+import localStorageGameListHandler from "@/util/localStorageGameListHandler";
 
 export default function Home() {
   const [gameQuery, setGameQuery] = useState("");
@@ -38,6 +39,10 @@ export default function Home() {
     setTimeoutId(changeQuery);
   }, [gameQuery]);
 
+  const handleGameList = (method, key, value) => {
+    localStorageGameListHandler(method, key, value);
+  };
+
   return (
     <>
       <Head>
@@ -51,11 +56,11 @@ export default function Home() {
         />
       </Head>
       <div>
-        <TitleContainer onClick={() => console.log(searchResults)}>
+        <TitleContainer onClick={() => handleGameList("list")}>
           Backlog estimator
         </TitleContainer>
 
-        <OuterSearchBarContainer isEmpty={gameQuery.length == 0} >
+        <OuterSearchBarContainer isEmpty={gameQuery.length == 0}>
           <SearchBarContainer
             placeholder="Search for a game...."
             cols="57"
@@ -64,11 +69,19 @@ export default function Home() {
           />
         </OuterSearchBarContainer>
 
-        {!isLoading && <CardListContainer>
-          {searchResults.map((elem) => (
-            <GameDisplayCard gameInfo={elem} />
-          ))}
-        </CardListContainer>}
+        {!isLoading && (
+          <CardListContainer>
+            {searchResults.map((elem) => (
+              <GameDisplayCard
+                key={elem.id}
+                gameInfo={elem}
+                addFunc={() =>
+                  handleGameList("add", elem.id, JSON.stringify(elem))
+                }
+              />
+            ))}
+          </CardListContainer>
+        )}
 
         {isLoading && <LoadingBubble />}
       </div>
