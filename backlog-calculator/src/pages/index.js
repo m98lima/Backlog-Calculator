@@ -8,7 +8,9 @@ import {
 } from "@/pages/index.styles";
 import GameDisplayCard from "@/components/GameDisplayCard/GameDisplayCard";
 import { useEffect, useState } from "react";
-import localStorageGameListHandler from "@/util/localStorageGameListHandler";
+import localStorageGameListHandler, {
+  isGameOnTheList,
+} from "@/util/localStorageGameListHandler";
 
 export default function Home() {
   const [gameQuery, setGameQuery] = useState("");
@@ -75,9 +77,10 @@ export default function Home() {
               <GameDisplayCard
                 key={elem.id}
                 gameInfo={elem}
-                addFunc={() =>
-                  handleGameList("add", elem.id, JSON.stringify(elem))
+                handleButton={(method) =>
+                  handleGameList(method, elem.id, JSON.stringify(elem))
                 }
+                alreadyOnList={isGameOnTheList(elem.id)}
               />
             ))}
           </CardListContainer>

@@ -81,7 +81,8 @@ export const CardButtonContainerFlex = styled.div`
 `;
 
 export const CardButtonContainer = styled.button`
-  background-color: #198ce4;
+  background-color: ${(props) => (props.alreadyOnList ? "#C60D0D" : "#198ce4")};
+  transform: rotate(${(props) => (props.alreadyOnList ? "135deg" : "0deg")});
   color: white;
   font-weight: bold;
   font-size: 15px;
@@ -93,6 +94,8 @@ export const CardButtonContainer = styled.button`
   height: 20px;
   width: 20px;
   cursor: pointer;
+
+  transition: all 0.3s;
 
   &:focus {
     outline: none;
