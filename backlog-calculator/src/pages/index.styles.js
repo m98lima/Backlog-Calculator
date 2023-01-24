@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-export const TitleContainer = styled.h1`
-  color: white;
-  text-align: center;
-  font-size: 60px;
-  font-family: "Hahmlet";
-  margin-top: 150px;
-`;
-
 export const SearchBarContainer = styled.textarea`
   display: block;
   margin-inline: auto;
@@ -37,7 +29,8 @@ export const OuterSearchBarContainer = styled.div`
   display: block;
   margin-inline: auto;
   background-color: #5a5a5a;
-  border: ${props => props.isEmpty ? "7px solid #a1a1a1" : "7px solid #198ce4"};
+  border: ${(props) =>
+    props.isEmpty ? "7px solid #a1a1a1" : "7px solid #198ce4"};
   transition-duration: 0.3s;
   border-radius: 40px;
 
@@ -75,10 +68,10 @@ export const LoadingBubble = styled.div`
   @keyframes loadAnim {
     0% {
       width: 60px;
-    };
+    }
     100% {
       width: 0px;
-    };
-  };
+    }
+  }
   animation: loadAnim 0.6s ease-in 0s infinite alternate;
 `;

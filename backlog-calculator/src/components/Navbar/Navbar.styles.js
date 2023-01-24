@@ -14,7 +14,7 @@ export const NavbarContainer = styled.nav`
 `;
 
 export const NavbarLinkContainer = styled(Link)`
-  color: white;
+  color: ${(props) => (props.isCurrentPage ? "#198ce4" : "white")};
   font-size: 19px;
   margin-inline: 10px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -25,14 +25,14 @@ export const NavbarLinkContainer = styled(Link)`
   display: inline-block;
   position: relative;
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
-    transform: scale(0);
+    transform: scale(${(props) => (props.isCurrentPage ? 1 : 0)});
     height: 3px;
     bottom: 0px;
     left: 0px;
-    background-color: white;
+    background-color: ${(props) => (props.isCurrentPage ? "#198ce4" : "white")};
     transition: 0.2s ease-out;
   }
   &:hover::after {
