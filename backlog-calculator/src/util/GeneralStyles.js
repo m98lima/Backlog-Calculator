@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const TitleContainer = styled.h1`
+  color: white;
+  text-align: center;
+  font-size: 60px;
+  font-family: "Hahmlet";
+  margin-top: ${(props) => props.marginTop};
+`;
+
 export const SearchBarContainer = styled.textarea`
   display: block;
   margin-inline: auto;

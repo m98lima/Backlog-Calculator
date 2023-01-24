@@ -4,7 +4,8 @@ import {
   LoadingBubble,
   OuterSearchBarContainer,
   SearchBarContainer,
-} from "@/pages/index.styles";
+  TitleContainer,
+} from "@/util/GeneralStyles";
 import GameDisplayCard from "@/components/GameDisplayCard/GameDisplayCard";
 import { useEffect, useState } from "react";
 import localStorageGameListHandler, {
@@ -50,6 +51,7 @@ export default function Home() {
         <title>Backlog estimator</title>
       </Head>
       <div>
+        <TitleContainer marginTop={"130px"} >Backlog estimator</TitleContainer>
         <OuterSearchBarContainer isEmpty={gameQuery.length == 0}>
           <SearchBarContainer
             placeholder="Search for a game...."

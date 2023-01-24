@@ -1,4 +1,4 @@
-import PageLayout from "@/components/PageLayout/PageLayout";
+import PageLayout from "@/components/PageLayout";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {

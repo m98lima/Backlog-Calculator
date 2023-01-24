@@ -1,14 +1,20 @@
 import { NavbarContainer, NavbarLinkContainer } from "./Navbar.styles";
 
 const Navbar = ({ currentPage }) => {
+  const homeURL = "/";
+  const listURL = "/my-list";
+
   return (
     <NavbarContainer>
-      <NavbarLinkContainer href={"/"} isCurrentPage={currentPage == "/"}>
+      <NavbarLinkContainer
+        href={homeURL}
+        isCurrentPage={currentPage == homeURL}
+      >
         Home
       </NavbarLinkContainer>
       <NavbarLinkContainer
-        href={"/my-list"}
-        isCurrentPage={currentPage == "/my-list"}
+        href={listURL}
+        isCurrentPage={currentPage == listURL}
       >
         My list
       </NavbarLinkContainer>
