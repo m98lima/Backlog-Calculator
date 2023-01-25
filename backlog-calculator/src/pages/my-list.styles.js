@@ -11,7 +11,7 @@ export const ListPageContainerFlex = styled.div`
 export const GameListSectionContainerFlex = styled.section`
   display: flex;
   flex-direction: column;
-  max-width: 60%;
+  width: 60%;
 `;
 
 export const GameTimeSumResultsContainerFlex = styled.section`
