@@ -3,7 +3,13 @@ const addNewItem = (key, value) => {
 };
 
 const returnAllItems = () => {
-  return { ...localStorage };
+  let result = [];
+  for (let [key, value] of Object.entries(localStorage)) {
+    if (!isNaN(key)) {
+      result = [...result, JSON.parse(value)];
+    }
+  }
+  return result;
 };
 
 const removeItem = (key) => {
@@ -12,7 +18,7 @@ const removeItem = (key) => {
 
 export default function localStorageGameListHandler(method, key, value) {
   if (method == "list") {
-    console.log(returnAllItems());
+    return returnAllItems();
   } else if (method == "add") {
     addNewItem(key, value);
   } else if (method == "remove") {

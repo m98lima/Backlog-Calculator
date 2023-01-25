@@ -42,7 +42,7 @@ export const OuterSearchBarContainer = styled.div`
   transition-duration: 0.3s;
   border-radius: 40px;
 
-  max-width: 460px;
+  width: 460px;
   height: 35px;
   max-height: 35px;
 `;
@@ -55,7 +55,7 @@ export const CardListContainer = styled.div`
   align-content: flex-start;
   overflow-y: scroll;
   width: 80%;
-  height: 410px;
+  height: ${(props) => props.height};
   margin-top: 50px;
   margin-inline: auto;
 

@@ -51,7 +51,7 @@ export default function Home() {
         <title>Backlog estimator</title>
       </Head>
       <div>
-        <TitleContainer marginTop={"130px"} >Backlog estimator</TitleContainer>
+        <TitleContainer marginTop={"130px"}>Backlog estimator</TitleContainer>
         <OuterSearchBarContainer isEmpty={gameQuery.length == 0}>
           <SearchBarContainer
             placeholder="Search for a game...."
@@ -62,7 +62,7 @@ export default function Home() {
         </OuterSearchBarContainer>
 
         {!isLoading && (
-          <CardListContainer>
+          <CardListContainer height={"410px"}>
             {searchResults.map((elem) => (
               <GameDisplayCard
                 key={elem.id}
