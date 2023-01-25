@@ -21,6 +21,7 @@ import {
 export default function MyList() {
   const [gameList, setGameList] = useState([]);
   const [gameFilter, setGameFilter] = useState("");
+  const [filteredList, setFilteredList] = useState([]);
   const [totalGameTimes, setTotalGameTimes] = useState([0, 0, 0]);
 
   const handleGameList = (method, key, value) => {
@@ -45,6 +46,14 @@ export default function MyList() {
     setGameList(handleGameList("list"));
   }, []);
 
+  useEffect(() => {
+    const filter = gameFilter.toLowerCase();
+    setFilteredList(gameList.filter(elem => {
+      const gameName = elem.name.toLowerCase();
+      return gameName.includes(filter);
+    }))
+  }, [gameFilter, gameList])
+
   return (
     <>
       <Head>
@@ -63,7 +72,7 @@ export default function MyList() {
               />
             </OuterSearchBarContainer>
             <CardListContainer height={"560px"}>
-              {gameList.map((elem) => (
+              {filteredList.map((elem) => (
                 <GameDisplayCard
                   key={elem.id}
                   gameInfo={elem}
