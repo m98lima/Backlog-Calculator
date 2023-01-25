@@ -68,9 +68,14 @@ export default function Home() {
                 key={elem.id}
                 gameInfo={elem}
                 handleButton={(method) =>
-                  handleGameList(method, elem.id, JSON.stringify(elem))
+                  handleGameList(
+                    method,
+                    elem.id,
+                    JSON.stringify({ ...elem, chosenGameTime: "gameplayMain" })
+                  )
                 }
                 alreadyOnList={isGameOnTheList(elem.id)}
+                showCustomPlaytimeSelectors={false}
               />
             ))}
           </CardListContainer>

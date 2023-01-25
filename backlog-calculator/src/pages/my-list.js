@@ -22,24 +22,36 @@ export default function MyList() {
   const [gameList, setGameList] = useState([]);
   const [gameFilter, setGameFilter] = useState("");
   const [filteredList, setFilteredList] = useState([]);
-  const [totalGameTimes, setTotalGameTimes] = useState([0, 0, 0]);
+  const [totalGameTimes, setTotalGameTimes] = useState([0, 0, 0, 0]);
 
   const handleGameList = (method, key, value) => {
     return localStorageGameListHandler(method, key, value);
+  };
+
+  const handleSelectCustomPlaytimeCallback = (gameInfo) => {
+    return (selectedGameTime) => {
+      let newGameInfo = gameInfo;
+      newGameInfo.chosenGameTime = selectedGameTime;
+      handleGameList("remove", newGameInfo.id);
+      handleGameList("add", newGameInfo.id, JSON.stringify(newGameInfo));
+      setGameList(handleGameList("list"));
+    };
   };
 
   useEffect(() => {
     let totalMain = 0;
     let totalExtras = 0;
     let totalComp = 0;
+    let totalCustom = 0;
 
     gameList.forEach((elem) => {
       totalMain += elem.gameplayMain;
       totalExtras += elem.gameplayMainExtra;
       totalComp += elem.gameplayCompletionist;
+      totalCustom += elem[elem.chosenGameTime];
     });
 
-    setTotalGameTimes([totalMain, totalExtras, totalComp]);
+    setTotalGameTimes([totalMain, totalExtras, totalComp, totalCustom]);
   }, [gameList]);
 
   useEffect(() => {
@@ -48,11 +60,13 @@ export default function MyList() {
 
   useEffect(() => {
     const filter = gameFilter.toLowerCase();
-    setFilteredList(gameList.filter(elem => {
-      const gameName = elem.name.toLowerCase();
-      return gameName.includes(filter);
-    }))
-  }, [gameFilter, gameList])
+    setFilteredList(
+      gameList.filter((elem) => {
+        const gameName = elem.name.toLowerCase();
+        return gameName.includes(filter);
+      })
+    );
+  }, [gameFilter, gameList]);
 
   return (
     <>
@@ -81,6 +95,10 @@ export default function MyList() {
                     setGameList(handleGameList("list"));
                   }}
                   alreadyOnList={isGameOnTheList(elem.id)}
+                  showCustomPlaytimeSelectors={true}
+                  customPlaytimeHandler={handleSelectCustomPlaytimeCallback(
+                    elem
+                  )}
                 />
               ))}
             </CardListContainer>
@@ -98,6 +116,10 @@ export default function MyList() {
             <GameTimeLabelContainer>Completionist</GameTimeLabelContainer>
             <TotalGameTimeContainer>
               {totalGameTimes[2]}h
+            </TotalGameTimeContainer>
+            <GameTimeLabelContainer>Custom</GameTimeLabelContainer>
+            <TotalGameTimeContainer>
+              {totalGameTimes[3]}h
             </TotalGameTimeContainer>
           </GameTimeSumResultsContainerFlex>
         </ListPageContainerFlex>

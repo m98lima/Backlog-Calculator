@@ -3,6 +3,9 @@ import {
   CardButtonContainer,
   CardButtonContainerFlex,
   CoverImageContainer,
+  CustomPlayTimeSelectorButtonContainer,
+  CustomPlayTimeSelectorButtonRendererContainer,
+  CustomPlaytimeSelectorContainerFlex,
   DisplayCardContainerFlex,
   GameInfoContainerFlex,
   GameTitleContainer,
@@ -11,8 +14,21 @@ import {
   TimeLabelContainer,
 } from "./GameDisplayCard.styles";
 
-const GameDisplayCard = ({ gameInfo, handleButton, alreadyOnList }) => {
+const GameDisplayCard = ({
+  gameInfo,
+  handleButton,
+  alreadyOnList,
+  showCustomPlaytimeSelectors,
+  customPlaytimeHandler,
+}) => {
   const [isOnList, setIsOnList] = useState(alreadyOnList);
+  const [selectedGameTime, setSelectedGameTime] = useState(
+    gameInfo.chosenGameTime
+  );
+
+  const mainTime = "gameplayMain";
+  const extraTime = "gameplayMainExtra";
+  const compTime = "gameplayCompletionist";
 
   const handleClick = () => {
     let method;
@@ -23,6 +39,10 @@ const GameDisplayCard = ({ gameInfo, handleButton, alreadyOnList }) => {
     }
     handleButton(method);
     setIsOnList(!isOnList);
+  };
+
+  const handleCustomTimeSelector = (selectedGameTime) => {
+    customPlaytimeHandler(selectedGameTime);
   };
 
   return (
@@ -52,6 +72,32 @@ const GameDisplayCard = ({ gameInfo, handleButton, alreadyOnList }) => {
         <CardButtonContainer onClick={handleClick} alreadyOnList={isOnList}>
           +
         </CardButtonContainer>
+
+        {showCustomPlaytimeSelectors && (
+          <CustomPlaytimeSelectorContainerFlex>
+            <CustomPlayTimeSelectorButtonContainer
+              onClick={() => handleCustomTimeSelector(mainTime)}
+            >
+              <CustomPlayTimeSelectorButtonRendererContainer
+                isSelected={gameInfo.chosenGameTime == mainTime}
+              />
+            </CustomPlayTimeSelectorButtonContainer>
+            <CustomPlayTimeSelectorButtonContainer
+              onClick={() => handleCustomTimeSelector(extraTime)}
+            >
+              <CustomPlayTimeSelectorButtonRendererContainer
+                isSelected={gameInfo.chosenGameTime == extraTime}
+              />
+            </CustomPlayTimeSelectorButtonContainer>
+            <CustomPlayTimeSelectorButtonContainer
+              onClick={() => handleCustomTimeSelector(compTime)}
+            >
+              <CustomPlayTimeSelectorButtonRendererContainer
+                isSelected={gameInfo.chosenGameTime == compTime}
+              />
+            </CustomPlayTimeSelectorButtonContainer>
+          </CustomPlaytimeSelectorContainerFlex>
+        )}
       </CardButtonContainerFlex>
     </DisplayCardContainerFlex>
   );

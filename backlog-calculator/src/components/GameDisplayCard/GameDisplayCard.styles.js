@@ -101,3 +101,40 @@ export const CardButtonContainer = styled.button`
     outline: none;
   }
 `;
+
+export const CustomPlaytimeSelectorContainerFlex = styled.div`
+  margin-top: 12px;
+  margin-left: 4px;
+  height: 77px;
+  width: 21px;
+  border-radius: 20px;
+  margin-right: 4px;
+  background-color: #6e6e6e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+export const CustomPlayTimeSelectorButtonContainer = styled.button`
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+  margin-left: 2px;
+  background-color: #6e6e6e;
+  border: none;
+`;
+
+export const CustomPlayTimeSelectorButtonRendererContainer = styled.div`
+  height: 15px;
+  width: 15px;
+  margin: 2px;
+  border-radius: 10px;
+  background-color: #198ce4;
+  border: 1px solid #50b3ff;
+  position: relative;
+  left: -8px;
+  top: -4px;
+
+  transform: scale(${(props) => (props.isSelected ? 1 : 0)});
+  transition: 0.3s ease-in;
+`;
