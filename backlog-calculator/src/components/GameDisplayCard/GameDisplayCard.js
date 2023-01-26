@@ -9,6 +9,7 @@ import {
   DisplayCardContainerFlex,
   GameInfoContainerFlex,
   GameTitleContainer,
+  GameTitleTooltipContainer,
   PlaytimeContainer,
   TimeEstimateContainerFlex,
   TimeLabelContainer,
@@ -50,6 +51,7 @@ const GameDisplayCard = ({
       <CoverImageContainer src={gameInfo.imageUrl} />
 
       <GameInfoContainerFlex>
+        <GameTitleTooltipContainer>{gameInfo.name}</GameTitleTooltipContainer>
         <GameTitleContainer>{gameInfo.name}</GameTitleContainer>
 
         <TimeEstimateContainerFlex>

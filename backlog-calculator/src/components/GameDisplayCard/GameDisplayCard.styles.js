@@ -35,6 +35,7 @@ export const GameInfoContainerFlex = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   width: 55%;
+  position: relative;
 `;
 
 export const GameTitleContainer = styled.h2`
@@ -48,6 +49,51 @@ export const GameTitleContainer = styled.h2`
   text-overflow: ellipsis;
   overflow-x: hidden;
   white-space: nowrap;
+`;
+
+export const GameTitleTooltipContainer = styled.span`
+  position: absolute;
+  width: 100px;
+  height: 21px;
+  color: white;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  z-index: 3;
+
+  &:hover {
+    color: white;
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    height: auto;
+    width: auto;
+    overflow: visible;
+    font-size: 12px;
+    font-weight: normal;
+    background-color: #242424;
+    padding: 3px;
+    border: 1px solid #198ce4;
+    z-index: 100;
+    
+    @keyframes fadeIn {
+      from {opacity: 0}
+      to {opacity: 1}
+    };
+
+    animation: fadeIn 0.3s ease-out;
+
+    box-shadow: 0px 0px 8px 0px #198ce4;
+  }
+
+  &:hover::before {
+    content: "";
+    position: absolute;
+    height: 21px;
+    width: 135px;
+    top: -25px;
+    left: -11px;
+  }
 `;
 
 export const TimeEstimateContainerFlex = styled.div`
