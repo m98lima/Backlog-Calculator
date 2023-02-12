@@ -10,7 +10,7 @@ After that, simply run ```yarn dev``` on the same console and access ```localhos
 ## Under the hood
 This project was created using React and Next.js. 
 
-Tha data used to estimate playtimes is fetched from [HowLongToBeat](https://howlongtobeat.com/) through [this API](https://github.com/ckatzorke/howlongtobeat).
+The data used to estimate playtimes is fetched from [HowLongToBeat](https://howlongtobeat.com/) through [this API](https://github.com/ckatzorke/howlongtobeat).
 
 The game list is stored on the web browser's local storage, so your backlog will persist if you close the application and run it again later, 
 just as long as you use the same browser
