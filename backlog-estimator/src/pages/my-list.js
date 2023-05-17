@@ -4,7 +4,7 @@ import {
   OuterSearchBarContainer,
   SearchBarContainer,
   TitleContainer,
-} from "@/util/GeneralStyles";
+} from "@/styles/GeneralStyles";
 import localStorageGameListHandler, {
   isGameOnTheList,
 } from "@/util/localStorageGameListHandler";
@@ -16,7 +16,7 @@ import {
   GameTimeSumResultsContainerFlex,
   ListPageContainerFlex,
   TotalGameTimeContainer,
-} from "./my-list.styles";
+} from "../styles/my-list.styles";
 
 export default function MyList() {
   const [gameList, setGameList] = useState([]);

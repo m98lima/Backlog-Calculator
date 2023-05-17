@@ -5,7 +5,7 @@ import {
   OuterSearchBarContainer,
   SearchBarContainer,
   TitleContainer,
-} from "@/util/GeneralStyles";
+} from "@/styles/GeneralStyles";
 import GameDisplayCard from "@/components/GameDisplayCard/GameDisplayCard";
 import { useEffect, useState } from "react";
 import localStorageGameListHandler, {
