@@ -4,11 +4,11 @@ Use this project to keep track of your gaming backlog and how much time you're e
 
 ## How to use it
 
-#### On the web
+### On the web
 
 You can follow [this link](https://backlog-estimator.vercel.app/) and test it for yourself.
 
-#### Local instance
+### Local instance
 
 If you want to set it up on your own machine, go into the `backlog-estimator` folder and run `yarn` on a console to install the project's dependencies.
 
